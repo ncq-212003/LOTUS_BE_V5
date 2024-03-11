@@ -1,0 +1,110 @@
+import {
+    Box,
+    Grid,
+    Stack,
+    TableContainer,
+    Paper,
+    Table,
+    TableHead,
+    TableRow,
+    TableCell,
+    TableBody,
+    Button,
+    TextField,
+    Typography,
+} from "@mui/material";
+import {
+    Add,
+} from '@mui/icons-material';
+import React, { useState } from "react";
+
+export default function TabStudyProcess() {
+    const [rows, setRows] = useState([
+        {
+            TuThangNam: '09/2010',
+            DenThangNam: '06/2014',
+            CapHoc: 'Đại học',
+            TenTruong: 'Đại học ABC',
+            DiaChi: 'Hà Nội',
+            ChuyenNganh: 'Công nghệ thông tin',
+            GhiChu: 'Khách hàng rất vui',
+        },
+        {
+            TuThangNam: '09/2005',
+            DenThangNam: '06/2009',
+            CapHoc: 'Trung học',
+            TenTruong: 'Trường Trung học XYZ',
+            DiaChi: 'Hồ Chí Minh',
+            ChuyenNganh: 'Khoa học xã hội',
+            GhiChu: 'Khách hàng rất vui',
+        },
+    ]);
+
+    return (
+        <>
+            <Stack spacing={3}>
+                <Grid
+                    container
+                    spacing={2}
+
+                >
+                    <Grid
+                        item
+                        sm={12}
+                        md={12}
+                        xs={12}
+                    >
+                        <TableContainer component={Paper}>
+                            <Table>
+                                <TableHead
+                                    sx={{
+                                        cursor: 'pointer'
+                                    }}
+                                >
+                                    <TableRow>
+                                        <TableCell>Stt</TableCell>
+                                        <TableCell align="center">Từ tháng / năm</TableCell>
+                                        <TableCell align="center">Đến tháng / năm</TableCell>
+                                        <TableCell align="center">Cấp học</TableCell>
+                                        <TableCell align="center">Tên trường</TableCell>
+                                        <TableCell align="center">Địa chỉ</TableCell>
+                                        <TableCell align="center">Chuyên ngành</TableCell>
+                                        <TableCell align="center">Ghi chú</TableCell>
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                    {rows.map((row, index) => (
+                                        <TableRow key={index}>
+                                            <TableCell>{index + 1}</TableCell>
+                                            <TableCell align="center">
+                                                <Typography>{row.TuThangNam}</Typography>
+                                            </TableCell>
+                                            <TableCell align="center">
+                                                <Typography>{row.DenThangNam}</Typography>
+                                            </TableCell>
+                                            <TableCell align="center">
+                                                <Typography>{row.CapHoc}</Typography>
+                                            </TableCell>
+                                            <TableCell align="center">
+                                                <Typography>{row.TenTruong}</Typography>
+                                            </TableCell>
+                                            <TableCell align="center">
+                                                <Typography>{row.DiaChi}</Typography>
+                                            </TableCell>
+                                            <TableCell align="center">
+                                                <Typography>{row.ChuyenNganh}</Typography>
+                                            </TableCell>
+                                            <TableCell align="center">
+                                                <Typography>{row.GhiChu}</Typography>
+                                            </TableCell>
+                                        </TableRow>
+                                    ))}
+                                </TableBody>
+                            </Table>
+                        </TableContainer>
+                    </Grid>
+                </Grid>
+            </Stack>
+        </>
+    )
+};
